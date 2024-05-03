@@ -13,6 +13,11 @@ describe('template spec', () => {
     cy.get('#noEdit').invoke('removeAttr','disabled')
     cy.get('#noEdit').should('have.prop','disabled', false)
     .type('We can change attribute')
+    cy.get('#dontwrite').should('have.value','This text is readonly')
+    .invoke('removeAttr','readonly')
+    .clear()
+    .type('We also can remove this one')
+    cy.get('#getMe').should('have.value','ortonikc')
 
   })
 })
